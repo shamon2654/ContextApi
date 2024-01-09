@@ -24,11 +24,11 @@ export class Navigation extends Component {
     // )
     return (
       <AuthContext.Consumer>
-        {(
+        {(//first context
           authContext //using multiple context
         ) => (
           <ThemeContext.Consumer>
-            {(context) => {
+            {(context) => {//second context
               //another way to get the context data or consume the data
               const { isLightTheme, dark, light } = context
               console.log(context)
@@ -36,17 +36,19 @@ export class Navigation extends Component {
               console.log(theme)
               const { isLogin,toggleAuth } = authContext;
               return (
+                <>
                 <nav
                   style={{
                     background: theme.ui,
                     color: theme.syntax,
-                    display: "flex",
+                      display: "flex",
+                    alignItems:"center",
                     justifyContent: "space-between",
                   }}
                 >
                   <h1>Context Api</h1>
-                  <div onClick={toggleAuth}>{isLogin? "LogeddIn":"LoggedOut"}</div>
-                  <button onClick={toggleAuth}>{isLogin ? "Login":"Logout"}</button>
+                  
+                  <button onClick={toggleAuth} style={{height:"20px"}}>{isLogin ? "Login":"Logout"}</button>
                   <ul>
                     <li>Home</li>
                     <li>About</li>
@@ -58,6 +60,9 @@ export class Navigation extends Component {
                     </li>
                   </ul>
                 </nav>
+                <div onClick={toggleAuth}>{isLogin? "LogeddIn":"LoggedOut"}</div>
+                </>
+                
               )
             }}
           </ThemeContext.Consumer>
