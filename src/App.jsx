@@ -1,22 +1,21 @@
 import React, { Component } from "react"
 import Navigation from "./Component/Navigation"
-import Login from "./Component/Login"
 import ThemeContextProvider from "./Context/themContext"
 import AuthContextProvider from "./Context/AuthContext"
+import BookList from "./Component/Login"
 
-export class App extends Component {
-  render() {
+const App=()=>{
     return (
       <>
         <ThemeContextProvider>
           <AuthContextProvider>
             <Navigation />
-            <Login />
+            <BookList />
           </AuthContextProvider>
         </ThemeContextProvider>
       </>
     )
   }
-}
+
 
 export default App

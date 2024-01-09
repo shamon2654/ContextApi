@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react'
 import { ThemeContext } from '../Context/themContext'
 
-export class Login extends Component {
-  static contextType = ThemeContext;
-  render() {
-    const { isLightTheme, light, dark } = this.context;
-    const theme = isLightTheme ? light : dark;
+const BookList = () => {
+  const { isLightTheme, dark, light } = useContext(ThemeContext);
+  const theme = isLightTheme ? light : dark;
+  
     return (
       <div className='book-list' style={{ background:theme.bg, color: theme.syntax}}>
         <ul>
@@ -16,6 +15,6 @@ export class Login extends Component {
       </div>
     )
   }
-}
 
-export default Login
+
+export default BookList
